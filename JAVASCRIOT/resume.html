@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richard Sanchez - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .resume-container {
+            display: flex;
+            width: 100%;
+            max-width: 900px;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* --- Left Column --- */
+        .left-column {
+            flex: 0 0 35%;
+            background-color: #3e0896e1;
+            color: white;
+            padding: 40px 30px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 30px;
+            display: block;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info, .education-item, .skills-list, .languages-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-info .icon {
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .education-item h4 {
+            font-size: 1em;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .education-item p {
+            margin: 5px 0 0;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .skills-list li, .languages-list li {
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        
+        .skills-list li:before {
+            content: '•';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .languages-list li:before {
+            content: '•';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        /* --- Right Column --- */
+        .right-column {
+            flex: 1;
+            padding: 40px 30px;
+            color: #333;
+        }
+
+        .header h2 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin: 0;
+            color: #333;
+            letter-spacing: 1px;
+        }
+        
+        .header h3 {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .section-right-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        .profile-text {
+            line-height: 1.6;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+        }
+        
+        .work-experience-item {
+            margin-bottom: 30px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .job-company {
+            font-weight: 500;
+        }
+
+        .job-date {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .job-details li {
+            margin-bottom: 5px;
+            line-height: 1.5;
+            font-size: 0.9em;
+        }
+        
+        .job-details li:before {
+            content: '•';
+            margin-right: 8px;
+            color: #666;
+        }
+
+        .reference-section {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .reference-item {
+            flex: 1;
+        }
+        
+        .reference-name {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .reference-details p {
+            margin: 0;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        /* --- Font Awesome Icons (Simulated) --- */
+        /* Normally you'd link to Font Awesome, but for a single file, this is an alternative */
+        .fa-phone:before { content: "📞"; }
+        .fa-envelope:before { content: "📧"; }
+        .fa-map-marker:before { content: "📍"; }
+        .fa-globe:before { content: "🌐"; }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        
+        <div class="left-column">
+            <div class="profile-photo">
+                <img src="https://i.ibb.co/L5w2R3S/WhatsApp-Image-2025-09-17-at-09-11-29-07a87dcd-1.jpg" alt="Richard Sanchez Profile Photo">
+            </div>
+
+            <div class="section contact">
+                <h3 class="section-title">CONTACT</h3>
+                <ul class="contact-info">
+                    <li><i class="icon fa fa-phone"></i><span>+918874889343</span></li>
+                    <li><i class="icon fa fa-envelope"></i><span>aayushv0408@gmail.com</span></li>
+                    <li><i class="icon fa fa-map-marker"></i><span>Alambagh, Lucknow</span></li>
+                    <li><i class="icon fa fa-globe"></i><span>soon</span></li>
+                </ul>
+            </div>
+
+            <div class="section education">
+                <h3 class="section-title">EDUCATION</h3>
+                <div class="education-item">
+                    <h4>2023 - 2027</h4>
+                    <p>ABES ENGG. COLLEGE</p>
+                    <p>• B.TECH IT</p>
+                </div>
+                <div class="education-item">
+                    <h4>2020 - 2022</h4>
+                    <p>KENDRIYA VIDYALAYA , LUCKNOW CANTT</p>
+                    <p>• INTERMEDIATE</p>
+                    <p>• PERCENTAGE : 79%</p>
+                </div>
+            </div>
+
+            <div class="section skills">
+                <h3 class="section-title">SKILLS</h3>
+                <ul class="skills-list">
+                    <li>Public Relations</li>
+                    <li>Teamwork</li>
+                    <li>Time Management</li>
+                    <li>Leadership</li>
+                    <li>Effective Communication</li>
+                    <li>Critical Thinking</li>
+                </ul>
+            </div>
+            
+            <div class="section languages">
+                <h3 class="section-title">LANGUAGES</h3>
+                <ul class="languages-list">
+                    <li>English (Fluent)</li>
+                    <li>Hindi (Fluent)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="right-column">
+            <div class="header">
+                <h2>AAYUSH VERMA</h2>
+                <h3>SOFTWARE ENGINEER</h3>
+            </div>
+
+            <div class="section profile">
+                <h3 class="section-right-title">PROFILE</h3>
+                <p class="profile-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation. Ut enim ad minim veniam quis nostrud exercitation.
+                </p>
+            </div>
+            
+            <div class="section work-experience">
+                <h3 class="section-right-title">WORK EXPERIENCE</h3>
+                
+                <div class="work-experience-item">
+                    <div class="job-header">
+                        <div>
+                            <p class="job-company">HGFHDHFHJ</p>
+                            <p class="job-title">FHGCHGFVJHN</p>
+                        </div>
+                        <span class="job-date">HGJHGJ</span>
+                    </div>
+                    <ul class="job-details">
+                        <li> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, assumenda.</li>
+                        <li> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat, nisi?</li>
+                        <li> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sequi.</li>
+                    </ul>
+                </div>
+                
+                <div class="work-experience-item">
+                    <div class="job-header">
+                        <div>
+                            <p class="job-company">NONE </p>
+                            <p class="job-title">\GHMFH</p>
+                        </div>
+                        <span class="job-date">2025 - 2029</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>HELLO</li>
+                        <li>HELLO</li>
+                        <li>HELLO</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section reference">
+                <h3 class="section-right-title">REFERENCE</h3>
+                <div class="reference-section">
+                    <div class="reference-item">
+                        <p class="reference-name">Estelle Darcy</p>
+                        <p>AAYUSH </p>
+                        <p>Phone: 8874889343</p>
+                        <p>Email: aayushv0408@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

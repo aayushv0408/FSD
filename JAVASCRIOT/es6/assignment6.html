@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resume Cards</title>
+  <style>
+    body { 
+        font-family: Arial, sans-serif; background: #f4f4f4; margin: 20px;
+     }
+    .container { 
+        display: flex; gap: 20px; flex-wrap: wrap;
+     }
+    .card {
+         background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); width: 350px; 
+    }
+    .profile img {
+         width: 100px; height: 100px; border-radius: 10px; object-fit: cover; background: #ddd; 
+    }
+    .profile {
+         display: flex; gap: 15px; align-items: center; 
+    }
+    .lang-list {
+         display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; 
+    }
+    .lang-pill {
+        background: #eee; padding: 5px 10px; border-radius: 20px;
+    }
+    input, textarea, button {
+        width: 100%; padding: 8px; margin-top: 6px; border: 1px solid #ccc; border-radius: 6px;
+    }
+    button {
+         background: #2563eb; color: #fff; font-weight: bold; cursor: pointer; border: none;
+    }
+    button:hover { 
+        background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Resume Card -->
+    <div class="card" id="resumeCard">
+      <div class="profile">
+        <img id="profilePhoto" src="" alt="Profile Photo">
+        <div>
+          <h3 id="displayName">Your Name</h3>
+          <p id="displayAddress">Your Address</p>
+        </div>
+      </div>
+      <h4>Languages</h4>
+      <div class="lang-list" id="displayLanguages"></div>
+    </div>
+
+    <!-- Form Card -->
+    <div class="card">
+      <h3>Fill Resume Details</h3>
+      <form id="resumeForm">
+        <label>Profile Photo<input type="file" id="photoInput" accept="image/*"></label>
+        <label>Full Name<input type="text" id="nameInput"></label>
+        <label>Language 1<input type="text" id="lang1"></label>
+        <label>Language 2<input type="text" id="lang2"></label>
+        <label>Language 3<input type="text" id="lang3"></label>
+        <label>Address<textarea id="addressInput"></textarea></label>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('resumeForm');
+    const photoInput = document.getElementById('photoInput');
+    const profilePhoto = document.getElementById('profilePhoto');
+    const displayName = document.getElementById('displayName');
+    const displayAddress = document.getElementById('displayAddress');
+    const displayLanguages = document.getElementById('displayLanguages');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      displayName.textContent = document.getElementById('nameInput').value || 'Your Name';
+      displayAddress.textContent = document.getElementById('addressInput').value || 'Your Address';
+      displayLanguages.innerHTML = '';
+      [document.getElementById('lang1').value, document.getElementById('lang2').value, document.getElementById('lang3').value]
+        .filter(v => v.trim() !== '')
+        .forEach(lang => {
+          const span = document.createElement('span');
+          span.className = 'lang-pill';
+          span.textContent = lang;
+          displayLanguages.appendChild(span);
+        });
+    });
+
+    photoInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => profilePhoto.src = ev.target.result;
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>

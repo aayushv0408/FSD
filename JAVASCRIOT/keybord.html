@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4-Key Sound Keyboard</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #222;
+    }
+    .keyboard {
+      display: flex;
+      gap: 20px;
+    }
+    .key {
+      width: 100px;
+      height: 150px;
+      background: white;
+      border: 2px solid black;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.1s ease, background 0.2s ease;
+    }
+    .key:active {
+      transform: scale(0.95);
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="keyboard">
+    <div class="key" onclick="playSound(1)">A</div>
+    <div class="key" onclick="playSound(2)">B</div>
+    <div class="key" onclick="playSound(3)">C</div>
+    <div class="key" onclick="playSound(4)">D</div>
+  </div>
+
+  <audio id="sound1" src="https://www.soundjay.com/button/sounds/button-3.mp3"></audio>
+  <audio id="sound2" src="https://www.soundjay.com/button/sounds/button-4.mp3"></audio>
+  <audio id="sound3" src="https://www.soundjay.com/button/sounds/button-09.mp3"></audio>
+  <audio id="sound4" src="https://www.soundjay.com/button/sounds/button-10.mp3"></audio>
+
+  <script>
+    function playSound(num) {
+      const sound = document.getElementById("sound" + num);
+      sound.currentTime = 0; // rewind to start if pressed again quickly
+      sound.play();
+    }
+  </script>
+
+</body>
+</html>
