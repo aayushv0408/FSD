@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <script>
+    function sum(a,b) {
+        console.log(a+b); 
+    }
+    function calculate(a,b,callback) {
+        callback(a,b);
+    }
+    callback(2,3,sum);
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <script>
+        function getdata(dataid){
+        setTimeout(() => {
+            console.log("data",dataid);
+            if(getnextdata){
+                getnextdata();
+            }
+        }, 2000);
+        }
+        getdata(1,()=>{
+            getdata(2,()=>{
+                getdata(3,()=>{
+                    getdata(4);
+                });
+            });
+        }  
+        );
+        
+    </script>
+                // getdata now accepts a callback which will be invoked after the timeout
+                function getdata(dataid, callback) {
+                    setTimeout(() => {
+                        console.log('data', dataid);
+                        if (typeof callback === 'function') {
+                            callback();
+                        }
+                    }, 2000);
+                }
+
+                // Properly nested callbacks (callback hell example)
+                getdata(1, () => {
+                    getdata(2, () => {
+                        getdata(3, () => {
+                            getdata(4);
+                        });
+                    });
+                });
