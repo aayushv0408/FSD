@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Counter App</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 24px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: #2196F3;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0b7dda;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Counter App</h1>
+  <div class="circle" id="counter">0</div>
+  <div class="buttons">
+    <button onclick="decrement()">−</button>
+    <button onclick="increment()">+</button>
+  </div>
+
+  <script>
+    let count = 0;
+    const counter = document.getElementById('counter');
+
+    function updateCounter() {
+      counter.textContent = count;
+    }
+
+    function increment() {
+      if (count < 10) {
+        count++;
+        updateCounter();
+      } else {
+        alert("Maximum: 10");
+      }
+    }
+
+    function decrement() {
+      if (count > 0) {
+        count--;
+        updateCounter();
+      } else {
+        alert("Minimum: 0");
+      }
+    }
+  </script>
+
+</body>
+</html>
