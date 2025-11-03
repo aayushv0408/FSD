@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simple To-Do List</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f9f9f9;
+        }
+        input {
+            padding: 8px;
+            width: 220px;
+        }
+        button {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .task-item {
+            background-color: #e3f2fd;
+            border: 1px solid #90caf9;
+            color: #1e88e5;
+            padding: 10px;
+            margin: 5px auto;
+            width: 300px;
+            border-radius: 4px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My To-Do List</h1>
+
+    <input type="text" id="taskInput" placeholder="Enter a task...">
+    <button id="addButton">Add Task</button>
+
+    <h3>List of All Tasks</h3>
+
+    <div id="taskList">
+        <p id="task1" class="task-item hidden"></p>
+        <p id="task2" class="task-item hidden"></p>
+        <p id="task3" class="task-item hidden"></p>
+        <p id="task4" class="task-item hidden"></p>
+    </div>
+
+    <script>
+        let currentTaskNumber = 1;
+
+        const addButton = document.getElementById('addButton');
+        const taskInput = document.getElementById('taskInput');
+
+        addButton.onclick = function() {
+            const nextTask = document.getElementById('task' + currentTaskNumber);
+
+            if (nextTask) {
+                const taskText = taskInput.value;
+                nextTask.innerText = taskText;
+                nextTask.classList.remove('hidden');
+                currentTaskNumber = currentTaskNumber + 1;
+                taskInput.value = '';
+            } else {
+                alert("You have added the maximum number of tasks!");
+            }
+        };
+    </script>
+
+</body>
+</html>

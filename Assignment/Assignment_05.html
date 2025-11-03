@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+    .counter {
+      text-align: center;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .counter h1 {
+      margin: 20px 0;
+      font-size: 40px;
+    }
+    button {
+      font-size: 24px;
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .plus {
+      background: #4CAF50;
+      color: white;
+    }
+    .minus {
+      background: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter">
+    <h1 id="count">0</h1>
+    <button class="minus" onclick="decrease()">-</button>
+    <button class="plus" onclick="increase()">+</button>
+  </div>
+
+  <script>
+    let count = 0;
+    const countDisplay = document.getElementById("count");
+
+    function increase() {
+      count++;
+      countDisplay.textContent = count;
+    }
+
+    function decrease() {
+      count--;
+      countDisplay.textContent = count;
+    }
+  </script>
+</body>
+</html>

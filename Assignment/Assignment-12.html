@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile & Form Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 50px;
+      margin: 50px;
+      background-color: #f7f7f7;
+    }
+
+    /* Profile Card */
+    .card {
+      width: 320px;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .profile-header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #333;
+      object-fit: cover;
+    }
+
+    .profile-text h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .profile-text p {
+      margin: 5px 0 0;
+      font-weight: bold;
+    }
+
+    .skills {
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    .skills h4 {
+      margin-bottom: 8px;
+      text-decoration: underline;
+    }
+
+    .skills ul {
+      list-style-type: "* ";
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+
+    /* Form Box */
+    .form-box {
+      width: 350px;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .form-box h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .form-row label {
+      width: 40%;
+      font-weight: bold;
+    }
+
+    .form-row input[type="text"] {
+      width: 55%;
+      padding: 6px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+
+    .skills-section label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .skills-section input[type="text"] {
+      width: 100%;
+      padding: 6px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      margin-bottom: 10px;
+    }
+
+    .form-box button {
+      margin-top: 10px;
+      padding: 10px 25px;
+      border: none;
+      background: #333;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: block;
+    }
+
+    .form-box button:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Profile Card -->
+  <div class="card">
+    <div class="profile-header">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile Picture">
+      <div class="profile-text">
+        <h1 id="adi">Aditya Kumar</h1>
+        <p id="qqq"></p>
+        <p>CS B.Tech 3rd Year</p>
+      </div>
+    </div>
+    <div class="skills">
+      <h4>Programming Skills:</h4>
+      <ul>
+        <li>C</li>
+        <li>.NET</li>
+        <li>Script</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="form-box">
+    <h3>Card Details</h3>
+    <form>
+      <div class="form-row">
+        <label for="name">Your Name</label>
+        <input type="text" id="aaa" placeholder="Enter name">
+      </div>
+
+      <div class="form-row">
+        <label for="class">Class</label>
+        <input type="text" id="class" placeholder="Enter class">
+      </div>
+
+      <div class="skills-section">
+        <label>Programming Skills</label>
+        <input type="text" value="C">
+        <input type="text" value=".NET">
+        <input type="text" value="Script">
+      </div>
+
+      <button  onclick="abes()">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function abes()
+        {
+           let x =document.getElementById("aaa");
+           let y=x.value;
+           document.getElementById("qqq").innerHTML=y;
+        }
+  </script>
+
+</body>
+</html>

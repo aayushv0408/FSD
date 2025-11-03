@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student JSON Cart Example</title>
+    <style>
+      body {
+        background: #f4f6fb;
+        margin: 0;
+        padding: 40px 0;
+      }
+      .cart-container {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        margin: 24px auto;
+        max-width: 400px;
+        padding: 24px 32px;
+      }
+      h3 {
+        color: #2a5d9f;
+        margin-top: 0;
+        margin-bottom: 16px;
+        font-size: 1.3em;
+        letter-spacing: 1px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        background: #eaf1fb;
+        margin-bottom: 10px;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 1em;
+        box-shadow: 0 1px 3px rgba(42,93,159,0.07);
+      }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+      <h3>Cart 1 (Common Branches)</h3>
+      <ul id="cart1"></ul>
+    </div>
+    <div class="cart-container">
+      <h3>Cart 2 (Uncommon Branches)</h3>
+      <ul id="cart2"></ul>
+    </div>
+      <script>
+            var students = [
+                { name: "Amit Kumar", branch: "CSE", rollno: 101 },
+                { name: "Priya Singh", branch: "CSE", rollno: 102 },
+                { name: "Rahul Verma", branch: "CE", rollno: 103 },
+                { name: "Sneha Gupta", branch: "IT", rollno: 104 },
+                { name: "Vikas Sharma", branch: "CSE", rollno: 105 }
+            ];
+            var branchCount = {};
+            for (var i = 0; i < students.length; i++) {
+                var branch = students[i].branch;
+                if (branchCount[branch]) {
+                    branchCount[branch]++;
+                } else {
+                    branchCount[branch] = 1;
+                }
+            }
+            var cart1 = [];
+            var cart2 = [];
+            for (var i = 0; i < students.length; i++) {
+                var branch = students[i].branch;
+                if (branchCount[branch] > 1) {
+                    cart1.push(students[i]);
+                } else {
+                    cart2.push(students[i]);
+                }
+            }
+            function displayCart(cart, elementId) {
+            var ul = document.getElementById(elementId);
+            ul.innerHTML = "";
+            for (var i = 0; i < cart.length; i++) {
+                var student = cart[i];
+                var li = document.createElement("li");
+                li.textContent = "Name: " + student.name + ", Branch: " + student.branch + ", Roll No: " + student.rollno;
+                ul.appendChild(li);
+            }
+            }
+            displayCart(cart1, "cart1");
+            displayCart(cart2, "cart2");
+        </script>
+</body>
+</html>
