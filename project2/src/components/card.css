@@ -1,0 +1,19 @@
+.card {
+  padding: 2rem;
+  margin: 1rem;
+  border: 1px solid rebeccapurple;
+  border-radius: 8px;
+  background-color: #723636;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.card p {
+  color: #666;
+}
+img {
+  border-radius:50%;
+}

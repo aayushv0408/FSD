@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        nav {
+            background-color: rgb(0, 179, 255);
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        nav img {
+            height: 60px;
+            border-radius: 50%;
+            margin-left: 40px;
+            margin-right: 20px;
+        }
+        
+        .intro {
+            font-weight: 600;
+            font-size: 30px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .sec {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .main {
+            width: 500px;
+            border: 5px solid black;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .details label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .details input[type="text"],
+        .details input[type="password"],
+        .details select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .details select {
+            width: calc(100% - 10px);
+        }
+
+        .details .gender-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .photo img {
+            height: 200px;
+            border: 2px solid black;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .button-link:hover {
+            background-color: #0056b3;
+        }
+
+        /* Styles for the payment page */
+        #payment-section {
+            display: none; /* Hidden by default */
+        }
+        
+        #payment-section.active {
+            display: block; /* Show when active */
+        }
+
+        .payment-options {
+            margin-top: 20px;
+        }
+        
+        .payment-options label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        
+        .thank-you {
+            margin-top: 30px;
+            font-style: italic;
+            text-align: center;
+            color: #555;
+        }
+        
+        .back-button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav">
+            <img src="" alt="logo">
+            <h1>Bus Booking</h1>
+        </div>
+    </nav>
+
+    <center class="intro"> * Welcome to Bus Booking System *</center>
+
+    <section class="sec" id="booking-section">
+        <div class="main">
+            <div class="details">
+                <form action="">
+                    <label for="username">User Name</label>
+                    <input type="text" id="username"><br>
+                    <label for="password">User Password</label>
+                    <input type="password" id="password"><br>
+                    
+                    <label>Select your gender</label>
+                    <div class="gender-options">
+                        <input type="radio" id="male" name="gender"><label for="male">Male</label>
+                        <input type="radio" id="female" name="gender"><label for="female">Female</label>
+                    </div>
+
+                    <label for="city">Select your city</label>
+                    <select id="city">
+                        <option value="" disabled selected>Choose your city</option>
+                        <option value="meerut">Meerut</option>
+                        <option value="noida">Noida</option>
+                        <option value="delhi">Delhi</option>
+                    </select>
+                    <br><br>
+                    <a href="#payment-section" class="button-link">Book Seat!</a>
+                </form>
+            </div>
+            <div class="photo">
+                <img src="https://etimg.etb2bimg.com/photo/75823659.cms" alt="Bus Image">
+            </div>
+        </div>
+    </section>
+
+    <section class="sec" id="payment-section">
+        <div class="main">
+            <div class="details">
+                <h3>Select your payment mode</h3>
+                <div class="payment-options">
+                    <label><input type="radio" name="payment"> UPI</label>
+                    <label><input type="radio" name="payment"> ATM</label>
+                </div>
+                <p class="thank-you">Thank you for using our services!</p>
+                <div class="back-button-container">
+                    <a href="#booking-section" class="button-link">Back</a>
+                </div>
+            </div>
+            <div class="photo">
+                <img src="https://etimg.etb2bimg.com/photo/75823659.cms" alt="Bus Image">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple JavaScript to handle page visibility based on the URL hash
+        window.addEventListener('hashchange', function() {
+            const bookingSection = document.getElementById('booking-section');
+            const paymentSection = document.getElementById('payment-section');
+
+            if (window.location.hash === '#payment-section') {
+                bookingSection.style.display = 'none';
+                paymentSection.style.display = 'flex';
+            } else {
+                bookingSection.style.display = 'flex';
+                paymentSection.style.display = 'none';
+            }
+        });
+
+        // Trigger the hashchange event on initial load to set the correct view
+        window.dispatchEvent(new Event('hashchange'));
+    </script>
+</body>
+</html>
