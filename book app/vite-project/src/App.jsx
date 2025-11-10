@@ -1,11 +1,16 @@
 import React from 'react'
+import Nav from './components/Nav'
 import Book from './components/Book'
-function App() {
+
+const App = () => {
   return (
     <div>
-    <Book />
+      <Nav />
+      <Book />
+      <Book />
+      <Book />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
